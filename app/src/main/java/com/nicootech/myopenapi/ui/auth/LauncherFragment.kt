@@ -1,6 +1,7 @@
 package com.nicootech.myopenapi.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.nicootech.myopenapi.R
 import com.nicootech.myopenapi.databinding.FragmentLauncherBinding
 
-class LauncherFragment : Fragment() {
+class LauncherFragment : BaseAuthFragment() {
     private var _binding: FragmentLauncherBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,6 +27,8 @@ class LauncherFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d(TAG, "LauncherFragment: ${viewModel.hashCode()}")
+
         binding.register.setOnClickListener {
             navRegistration()
         }
